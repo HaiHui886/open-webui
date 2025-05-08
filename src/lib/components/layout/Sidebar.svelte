@@ -503,11 +503,11 @@
 			<a
 				id="sidebar-new-chat-button"
 				class="flex justify-between items-center flex-1 rounded-lg px-2 py-1 h-full text-right hover:bg-gray-100 dark:hover:bg-gray-900 transition no-drag-region"
-				href="/"
+				href="./"
 				draggable="false"
 				on:click={async () => {
 					selectedChatId = null;
-					await goto('/');
+					await goto('./');
 					const newChatButton = document.getElementById('new-chat-button');
 					setTimeout(() => {
 						newChatButton?.click();
@@ -541,7 +541,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="flex-grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/home"
+					href="./home"
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
@@ -567,7 +567,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="flex-grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/workspace"
+					href="/endpoint/uivarpath/workspace"
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
