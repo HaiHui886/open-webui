@@ -14,7 +14,13 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html'
-		})
+		}),
+		paths: {
+			// assets: '',
+			base: '/endpoint/uivarpath',
+			relative: true   // 启用相对路径
+		},
+		// appDir: '_app'     // 保持默认应用目录
 	},
 	vitePlugin: {
 		// inspector: {
