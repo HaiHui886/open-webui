@@ -371,8 +371,11 @@ async def lifespan(app: FastAPI):
     asyncio.create_task(periodic_usage_pool_cleanup())
     yield
 
+K_SERV = os.getenv("K_SERVICE", "uivarpath")
+print(f"K_SERVICE: {K_SERV}")
 
 app = FastAPI(
+    root_path=f"/endpoint/{K_SERV}",
     docs_url="/docs" if ENV == "dev" else None,
     openapi_url="/openapi.json" if ENV == "dev" else None,
     redoc_url=None,
@@ -1274,7 +1277,6 @@ async def healthcheck_with_db():
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 app.mount("/cache", StaticFiles(directory=CACHE_DIR), name="cache")
 
-
 def swagger_ui_html(*args, **kwargs):
     return get_swagger_ui_html(
         *args,
@@ -1283,7 +1285,6 @@ def swagger_ui_html(*args, **kwargs):
         swagger_css_url="/static/swagger-ui/swagger-ui.css",
         swagger_favicon_url="/static/swagger-ui/favicon.png",
     )
-
 
 applications.get_swagger_ui_html = swagger_ui_html
 
