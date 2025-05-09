@@ -2,14 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/static/favicon.png" />
-		<link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
-		<link rel="shortcut icon" href="/static/favicon.ico" />
+		<link rel="icon" type="image/png" href="./static/favicon.png" />
+		<link rel="icon" type="image/png" href="./static/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="./static/favicon.svg" />
+		<link rel="shortcut icon" href="./static/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png" />
 		<meta name="apple-mobile-web-app-title" content="Open WebUI" />
 
-		<link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+		<link rel="manifest" href="/endpoint/uivarpath/manifest.json" crossorigin="use-credentials" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
@@ -23,7 +23,7 @@
 			title="Open WebUI"
 			href="/opensearch.xml"
 		/>
-		<script src="/static/loader.js" defer></script>
+		<script src="static/loader.js" defer></script>
 
 		<script>
 			function resizeIframe(obj) {
@@ -83,10 +83,10 @@
 
 					if (isDarkMode) {
 						const darkImage = new Image();
-						darkImage.src = '/static/splash-dark.png';
+						darkImage.src = '/endpoint/uivarpath/static/splash-dark.png';
 
 						darkImage.onload = () => {
-							logo.src = '/static/splash-dark.png';
+							logo.src = '/endpoint/uivarpath/static/splash-dark.png';
 							logo.style.filter = ''; // Ensure no inversion is applied if splash-dark.png exists
 						};
 
@@ -129,7 +129,7 @@
 					left: 50%;
 					transform: translateX(-50%);
 				"
-				src="/static/splash.png"
+				src="./static/splash.png"
 			/>
 
 			<div
@@ -149,7 +149,7 @@
 				<img
 					id="logo-her"
 					style="width: auto; height: 13rem"
-					src="/static/splash.png"
+					src="./static/splash.png"
 					class="animate-pulse-fast"
 				/>
 

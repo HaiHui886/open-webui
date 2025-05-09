@@ -4,6 +4,7 @@ import logging
 import sys
 import time
 from redis import asyncio as aioredis
+import os
 
 from open_webui.models.users import Users, UserNameResponse
 from open_webui.models.channels import Channels
@@ -144,12 +145,13 @@ async def periodic_usage_pool_cleanup():
     finally:
         release_func()
 
+SpaceSvcName = os.getenv("K_SERVICE", "")
+RootPath = f"/endpoint/{SpaceSvcName}" if SpaceSvcName else ""
 
 app = socketio.ASGIApp(
     sio,
-    socketio_path="/ws/socket.io",
+    socketio_path=f"{RootPath}/ws/socket.io",
 )
-
 
 def get_models_in_use():
     # List models that are currently in use

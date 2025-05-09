@@ -3,6 +3,7 @@
 	import { WEBUI_NAME, showSidebar, functions } from '$lib/stores';
 	import MenuLines from '$lib/components/icons/MenuLines.svelte';
 	import { page } from '$app/stores';
+	import { URL_PREFIX } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 

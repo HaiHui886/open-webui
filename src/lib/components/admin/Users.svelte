@@ -15,6 +15,7 @@
 
 	onMount(async () => {
 		if ($user?.role !== 'admin') {
+			console.log('lib-comp-admin-user-ua23');
 			await goto('/');
 		}
 

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { getContext, tick } from 'svelte';
 	import { toast } from 'svelte-sonner';
 	import { config, models, settings, user } from '$lib/stores';
@@ -655,7 +656,7 @@
 										? ''
 										: ' text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'}"
 									on:click={async () => {
-										await goto('/admin/settings');
+										await goto(URL_PREFIX + '/admin/settings');
 										show = false;
 									}}
 								>

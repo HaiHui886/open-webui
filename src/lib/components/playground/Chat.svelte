@@ -195,6 +195,7 @@
 
 	onMount(async () => {
 		if ($user?.role !== 'admin') {
+			console.log('lib-comp-pg-983');
 			await goto('/');
 		}
 

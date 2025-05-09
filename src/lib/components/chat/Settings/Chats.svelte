@@ -77,6 +77,7 @@
 	};
 
 	const archiveAllChatsHandler = async () => {
+		console.log('lib-comp-chat-sets-ss08');
 		await goto('/');
 		await archiveAllChats(localStorage.token).catch((error) => {
 			toast.error(`${error}`);
@@ -88,6 +89,7 @@
 	};
 
 	const deleteAllChatsHandler = async () => {
+		console.log('lib-comp-chat-sets-pos13');
 		await goto('/');
 		await deleteAllChats(localStorage.token).catch((error) => {
 			toast.error(`${error}`);

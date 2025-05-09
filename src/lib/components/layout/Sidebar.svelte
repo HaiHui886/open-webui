@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { toast } from 'svelte-sonner';
 	import { v4 as uuidv4 } from 'uuid';
 
@@ -510,11 +511,12 @@
 			<a
 				id="sidebar-new-chat-button"
 				class="flex justify-between items-center flex-1 rounded-lg px-2 py-1 h-full text-right hover:bg-gray-100 dark:hover:bg-gray-900 transition no-drag-region"
-				href="/"
+				href="{URL_PREFIX}/"
 				draggable="false"
 				on:click={async () => {
 					selectedChatId = null;
-					await goto('/');
+					console.log('lib-comp-layout-sidebar-sb974');
+					await goto(URL_PREFIX + '/');
 					const newChatButton = document.getElementById('new-chat-button');
 					setTimeout(() => {
 						newChatButton?.click();
@@ -574,7 +576,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/notes"
+					href="{URL_PREFIX}/notes"
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');
@@ -616,7 +618,7 @@
 			<div class="px-1.5 flex justify-center text-gray-800 dark:text-gray-200">
 				<a
 					class="grow flex items-center space-x-3 rounded-lg px-2 py-[7px] hover:bg-gray-100 dark:hover:bg-gray-900 transition"
-					href="/workspace"
+					href="{URL_PREFIX}/workspace"
 					on:click={() => {
 						selectedChatId = null;
 						chatId.set('');

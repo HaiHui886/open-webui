@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { toast } from 'svelte-sonner';
 	import { goto, invalidate, invalidateAll } from '$app/navigation';
 	import { onMount, getContext, createEventDispatcher, tick, onDestroy } from 'svelte';
@@ -103,6 +104,7 @@
 		});
 
 		if (res) {
+			console.log('cloneChatHandler01');
 			goto(`/c/${res.id}`);
 
 			currentChatPage.set(1);
@@ -120,6 +122,7 @@
 		if (res) {
 			tags.set(await getAllTags(localStorage.token));
 			if ($chatId === id) {
+				console.log('lib-components-layout-sidebar-s9');
 				await goto('/');
 
 				await chatId.set('');
@@ -350,8 +353,9 @@
 				: selected
 					? 'bg-gray-100 dark:bg-gray-950'
 					: ' group-hover:bg-gray-100 dark:group-hover:bg-gray-950'}  whitespace-nowrap text-ellipsis"
-			href="/c/{id}"
+			href="{URL_PREFIX}/c/{id}"
 			on:click={() => {
+				console.log('ChatItem on:click 01');
 				dispatch('select');
 
 				if ($mobile) {

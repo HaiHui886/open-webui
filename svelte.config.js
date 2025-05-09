@@ -14,7 +14,12 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html'
-		})
+		}),
+		paths: {
+			base: '/endpoint/uivarpath',
+			// relative: true
+		},
+		// appDir: '_app'
 	},
 	vitePlugin: {
 		// inspector: {

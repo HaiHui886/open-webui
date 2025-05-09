@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { toast } from 'svelte-sonner';
 	import fileSaver from 'file-saver';
 	const { saveAs } = fileSaver;
@@ -95,7 +96,7 @@
 				id: `${_tool.id}_clone`,
 				name: `${_tool.name} (Clone)`
 			});
-			goto('/workspace/tools/create');
+			goto(URL_PREFIX + '/workspace/tools/create');
 		}
 	};
 
@@ -195,7 +196,7 @@
 			<div>
 				<a
 					class=" px-2 py-2 rounded-xl hover:bg-gray-700/10 dark:hover:bg-gray-100/10 dark:text-gray-300 dark:hover:text-white transition font-medium text-sm flex items-center space-x-1"
-					href="/workspace/tools/create"
+					href="{URL_PREFIX}/workspace/tools/create"
 				>
 					<Plus className="size-3.5" />
 				</a>

@@ -16,6 +16,7 @@
 			goto(`/?youtube=${encodeURIComponent(videoId)}`);
 		} else {
 			// Redirect to root if 'v' parameter doesn't exist
+			console.log('routes-watch-page-99');
 			goto('/');
 		}
 	});

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { toast } from 'svelte-sonner';
 	import fileSaver from 'file-saver';
 	const { saveAs } = fileSaver;
@@ -78,7 +79,7 @@
 		});
 
 		if (res) {
-			goto(`/notes/${res.id}`);
+			goto(URL_PREFIX + `/notes/${res.id}`);
 		}
 	};
 
@@ -308,7 +309,7 @@
 								>
 									<div class=" flex flex-1 space-x-4 cursor-pointer w-full">
 										<a
-											href={`/notes/${note.id}`}
+											href={URL_PREFIX + `/notes/${note.id}`}
 											class="w-full -translate-y-0.5 flex flex-col justify-between"
 										>
 											<div class="flex-1">

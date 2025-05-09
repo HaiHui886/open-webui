@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import * as ort from 'onnxruntime-web';
 	import { env, AutoModel, AutoTokenizer } from '@huggingface/transformers';
 
@@ -353,7 +354,7 @@
 							<div class="flex items-center gap-2">
 								<div class="shrink-0">
 									<img
-										src={model?.info?.meta?.profile_image_url ?? '/favicon.png'}
+										src={model?.info?.meta?.profile_image_url ?? URL_PREFIX + '/favicon.png'}
 										alt={model.name}
 										class="size-5 rounded-full object-cover shrink-0"
 									/>

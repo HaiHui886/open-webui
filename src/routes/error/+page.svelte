@@ -9,6 +9,7 @@
 
 	onMount(async () => {
 		if ($config) {
+			console.log('route-error-page-e2');
 			await goto('/');
 		}
 
