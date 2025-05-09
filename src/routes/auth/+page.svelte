@@ -39,7 +39,7 @@
 			$socket.emit('user-join', { auth: { token: sessionUser.token } });
 			await user.set(sessionUser);
 			await config.set(await getBackendConfig());
-			goto('/');
+			goto('./');
 		}
 	};
 
@@ -147,7 +147,7 @@
 				<div class=" self-center">
 					<img
 						crossorigin="anonymous"
-						src="{WEBUI_BASE_URL}/static/splash.png"
+						src="./static/splash.png"
 						class=" w-6 rounded-full dark:invert"
 						alt="logo"
 					/>

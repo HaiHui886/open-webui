@@ -6,18 +6,18 @@
 	onMount(() => {
 		if ($user?.role !== 'admin') {
 			if ($user?.permissions?.workspace?.models) {
-				goto('/workspace/models');
+				goto('/endpoint/uivarpath/workspace/models');
 			} else if ($user?.permissions?.workspace?.knowledge) {
-				goto('/workspace/knowledge');
+				goto('/endpoint/uivarpath/workspace/knowledge');
 			} else if ($user?.permissions?.workspace?.prompts) {
-				goto('/workspace/prompts');
+				goto('/endpoint/uivarpath/workspace/prompts');
 			} else if ($user?.permissions?.workspace?.tools) {
-				goto('/workspace/tools');
+				goto('/endpoint/uivarpath/workspace/tools');
 			} else {
-				goto('/');
+				goto('/endpoint/uivarpath/');
 			}
 		} else {
-			goto('/workspace/models');
+			goto('/endpoint/uivarpath/workspace/models');
 		}
 	});
 </script>
