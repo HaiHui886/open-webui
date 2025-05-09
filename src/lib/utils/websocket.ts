@@ -7,7 +7,7 @@ import { browser, dev } from '$app/environment';
 
 export const setupSocket = async (enableWebsocket) => {
 	console.log('setupSocket', enableWebsocket, WEBUI_BASE_URL);
-	var socket_addr = 'http://localhost:8888/';
+	var socket_addr = '';
 	if (dev) {
 		socket_addr = getWebSocketAddr(WEBUI_BASE_URL);
 	} else {
@@ -63,8 +63,8 @@ export const setupSocket = async (enableWebsocket) => {
 
 export const getWebSocketAddr = (url: string) => {
   var schema = "http";
-  var host = "mylocalhost"; 
-  var port = "8090";
+  var host = "localhost"; 
+  var port = "8080";
   try {
     const parsedURL = new URL(url);
 	if (parsedURL.protocol) {

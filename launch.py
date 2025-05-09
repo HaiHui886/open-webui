@@ -15,7 +15,8 @@ os.environ['ENABLE_EVALUATION_ARENA_MODELS'] = 'false'
 os.environ['ENABLE_OLLAMA_API'] = 'false'
 os.environ['ENABLE_OPENAI_API'] = 'true'
 # os.environ['OPENAI_API_BASE_URL'] = 'http://127.0.0.1:11231/v1'
-os.environ['OPENAI_API_BASE_URL'] = 'http://127.0.0.1:11434/v1'
+# os.environ['OPENAI_API_BASE_URL'] = 'http://127.0.0.1:11434/v1'
+os.environ['OPENAI_API_BASE_URL'] = 'http://127.0.0.1:10013/v1'
 os.environ['K_SERVICE'] = 'uivarpath'
 
 if __name__ == '__main__':
