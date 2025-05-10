@@ -13,7 +13,7 @@ export const setupSocket = async (enableWebsocket) => {
 	} else {
 		socket_addr = getWebSocketAddr(window.location.href);
 	}
-	console.log('connect socket_addr = ', socket_addr);
+	console.log('connect socket_addr=', socket_addr, ', dev=', dev);
 	const _socket = io(`${socket_addr}` || undefined, {
 	// const _socket = io(`${WEBUI_BASE_URL}` || undefined, {
 		reconnection: true,
@@ -32,7 +32,7 @@ export const setupSocket = async (enableWebsocket) => {
 	});
 
 	_socket.on('connect', () => {
-		console.log('websocket_connected', _socket.id);
+		console.log('websocket_connected: _socket.id=', _socket.id, ", _socket=", _socket);
 	});
 
 	_socket.on('reconnect_attempt', (attempt) => {
@@ -62,22 +62,27 @@ export const setupSocket = async (enableWebsocket) => {
 };
 
 export const getWebSocketAddr = (url: string) => {
-  var schema = "http";
-  var host = "localhost"; 
-  var port = "8080";
-  try {
-    const parsedURL = new URL(url);
-	if (parsedURL.protocol) {
-		schema = parsedURL.protocol.slice(0, -1);
+	console.log('getWebSocketAddr.url:', url);
+	var schema = "http";
+	var host = "localhost";
+	var port = "";
+	try {
+		const parsedURL = new URL(url);
+		console.log('getWebSocketAddr.parsedURL:', parsedURL);
+		if (parsedURL.protocol) {
+			console.log('parsedURL.protocol=', parsedURL.protocol);
+			schema = parsedURL.protocol.slice(0, -1);
+		}
+		if (parsedURL.hostname) {
+			console.log('parsedURL.hostname=', parsedURL.hostname);
+			host = parsedURL.hostname;
+		}
+		if (parsedURL.port) {
+			console.log('parsedURL.port=', parsedURL.port);
+			port = ':' + parsedURL.port;
+		}
+	} catch (error) {
+		console.error("parse url error: ", error);
 	}
-	if (parsedURL.hostname) {
-		host = parsedURL.hostname;
-	}
-	if (parsedURL.port) {
-		port = parsedURL.port;
-	}
-  } catch (error) {
-    console.error("parse url error: ", error);
-  }
-  return `${schema}://${host}:${port}`;
+	return `${schema}://${host}${port}`;
 };
