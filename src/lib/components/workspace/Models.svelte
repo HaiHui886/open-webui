@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { marked } from 'marked';
 
 	import { toast } from 'svelte-sonner';
@@ -234,7 +235,7 @@
 			<div>
 				<a
 					class=" px-2 py-2 rounded-xl hover:bg-gray-700/10 dark:hover:bg-gray-100/10 dark:text-gray-300 dark:hover:text-white transition font-medium text-sm flex items-center space-x-1"
-					href="/workspace/models/create"
+					href="{URL_PREFIX}/workspace/models/create"
 				>
 					<Plus className="size-3.5" />
 				</a>
@@ -256,7 +257,7 @@
 								: 'opacity-50 dark:opacity-50'} "
 						>
 							<img
-								src={model?.meta?.profile_image_url ?? '/static/favicon.png'}
+								src={model?.meta?.profile_image_url ?? './static/favicon.png'}
 								alt="modelfile profile"
 								class=" rounded-full w-full h-auto object-cover"
 							/>

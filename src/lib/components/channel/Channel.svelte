@@ -64,6 +64,7 @@
 				}
 			}
 		} else {
+			console.log('lib-comp-channel-ch23');
 			goto('/');
 		}
 	};

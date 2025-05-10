@@ -123,6 +123,7 @@
 
 	onMount(async () => {
 		if ($user?.role !== 'admin') {
+			console.log('lib-com-admin-user-i892');
 			await goto('/');
 			return;
 		}

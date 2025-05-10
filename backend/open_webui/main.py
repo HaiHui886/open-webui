@@ -468,8 +468,11 @@ async def lifespan(app: FastAPI):
 
     yield
 
+SpaceSvcName = os.getenv("K_SERVICE", "")
+RootPath = f"/endpoint/{SpaceSvcName}" if SpaceSvcName else ""
 
 app = FastAPI(
+    root_path=RootPath,
     title="Open WebUI",
     docs_url="/docs" if ENV == "dev" else None,
     openapi_url="/openapi.json" if ENV == "dev" else None,
@@ -970,7 +973,6 @@ async def inspect_websocket(request: Request, call_next):
                 content={"detail": "Invalid WebSocket upgrade request"},
             )
     return await call_next(request)
-
 
 app.add_middleware(
     CORSMiddleware,

@@ -412,10 +412,11 @@
 			user.set(null);
 
 			localStorage.removeItem('token');
-			location.href = '/auth';
+			console.log('layout-03');
+			//location.href = '/auth';
 		}
 	};
-
+	console.log('WEBUI_BASE_URL', WEBUI_BASE_URL, 'WEBUI_HOSTNAME', WEBUI_HOSTNAME);
 	onMount(async () => {
 		if (typeof window !== 'undefined' && window.applyTheme) {
 			window.applyTheme();
@@ -513,7 +514,7 @@
 			// Save Backend Status to Store
 			await config.set(backendConfig);
 			await WEBUI_NAME.set(backendConfig.name);
-
+			
 			if ($config) {
 				const currentUrl = `${window.location.pathname}${window.location.search}`;
 				const encodedUrl = encodeURIComponent(currentUrl);
@@ -541,19 +542,22 @@
 					} else {
 						// Redirect Invalid Session User to /auth Page
 						localStorage.removeItem('token');
-						await goto(`/auth?redirect=${encodedUrl}`);
+						console.log('layout-01');
+						// await goto(`/auth?redirect=${encodedUrl}`);
 					}
 				} else {
 					// Don't redirect if we're already on the auth page
 					// Needed because we pass in tokens from OAuth logins via URL fragments
 					if ($page.url.pathname !== '/auth') {
-						await goto(`/auth?redirect=${encodedUrl}`);
+						console.log('layout-02', $page.url.pathname);
+						// await goto(`/auth?redirect=${encodedUrl}`);
 					}
 				}
 			}
 		} else {
 			// Redirect to /error when Backend Not Detected
-			await goto(`/error`);
+			console.log('layout-04', backendConfig);
+			//await goto(`/error`);
 		}
 
 		await tick();

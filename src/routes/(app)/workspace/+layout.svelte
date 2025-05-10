@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { URL_PREFIX } from '$lib/constants';
 	import { onMount, getContext } from 'svelte';
 	import {
 		WEBUI_NAME,
@@ -23,18 +24,22 @@
 	onMount(async () => {
 		if ($user?.role !== 'admin') {
 			if ($page.url.pathname.includes('/models') && !$user?.permissions?.workspace?.models) {
+				console.log('workspace-wsp001');
 				goto('/');
 			} else if (
 				$page.url.pathname.includes('/knowledge') &&
 				!$user?.permissions?.workspace?.knowledge
 			) {
+				console.log('workspace-wsp002');
 				goto('/');
 			} else if (
 				$page.url.pathname.includes('/prompts') &&
 				!$user?.permissions?.workspace?.prompts
 			) {
+				console.log('workspace-wsp003');
 				goto('/');
 			} else if ($page.url.pathname.includes('/tools') && !$user?.permissions?.workspace?.tools) {
+				console.log('workspace-wsp004');
 				goto('/');
 			}
 		}
@@ -83,7 +88,7 @@
 								)
 									? ''
 									: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-								href="/workspace/models">{$i18n.t('Models')}</a
+								href="{URL_PREFIX}/workspace/models">{$i18n.t('Models')}</a
 							>
 						{/if}
 
@@ -94,7 +99,7 @@
 								)
 									? ''
 									: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-								href="/workspace/knowledge"
+								href="{URL_PREFIX}/workspace/knowledge"
 							>
 								{$i18n.t('Knowledge')}
 							</a>
@@ -107,7 +112,7 @@
 								)
 									? ''
 									: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-								href="/workspace/prompts">{$i18n.t('Prompts')}</a
+								href="{URL_PREFIX}/workspace/prompts">{$i18n.t('Prompts')}</a
 							>
 						{/if}
 
@@ -116,7 +121,7 @@
 								class="min-w-fit rounded-full p-1.5 {$page.url.pathname.includes('/workspace/tools')
 									? ''
 									: 'text-gray-300 dark:text-gray-600 hover:text-gray-700 dark:hover:text-white'} transition"
-								href="/workspace/tools"
+								href="{URL_PREFIX}/workspace/tools"
 							>
 								{$i18n.t('Tools')}
 							</a>

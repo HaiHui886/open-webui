@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { URL_PREFIX } from '$lib/constants';
 
+	console.log('slideshow', URL_PREFIX);
 	export let imageUrls = [
-		'/assets/images/adam.jpg',
-		'/assets/images/galaxy.jpg',
-		'/assets/images/earth.jpg',
-		'/assets/images/space.jpg'
+		URL_PREFIX + '/assets/images/adam.jpg',
+		URL_PREFIX + '/assets/images/galaxy.jpg',
+		URL_PREFIX + '/assets/images/earth.jpg',
+		URL_PREFIX + '/assets/images/space.jpg'
 	];
 	export let duration = 5000;
 	let selectedImageIdx = 0;

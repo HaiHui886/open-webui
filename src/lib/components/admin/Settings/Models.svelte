@@ -2,6 +2,7 @@
 	import { marked } from 'marked';
 	import fileSaver from 'file-saver';
 	const { saveAs } = fileSaver;
+	import { URL_PREFIX } from '$lib/constants';
 
 	import { onMount, getContext, tick } from 'svelte';
 	const i18n = getContext('i18n');
@@ -299,7 +300,7 @@
 										: 'opacity-50 dark:opacity-50'} "
 								>
 									<img
-										src={model?.meta?.profile_image_url ?? '/static/favicon.png'}
+										src={model?.meta?.profile_image_url ?? URL_PREFIX + '/static/favicon.png'}
 										alt="modelfile profile"
 										class=" rounded-full w-full h-auto object-cover"
 									/>

@@ -51,6 +51,7 @@
 				await tick();
 				loaded = true;
 			} else {
+				console.log('route-s-id-si22');
 				await goto('/');
 			}
 		})();
@@ -88,6 +89,7 @@
 		);
 		await chatId.set($page.params.id);
 		chat = await getChatByShareId(localStorage.token, $chatId).catch(async (error) => {
+			console.log('route-error-page-e42');
 			await goto('/');
 			return null;
 		});
@@ -137,6 +139,7 @@
 		});
 
 		if (res) {
+			console.log('cloneSharedChat 01', res);
 			goto(`/c/${res.id}`);
 		}
 	};
